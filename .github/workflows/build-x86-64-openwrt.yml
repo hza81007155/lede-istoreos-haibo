@@ -153,7 +153,7 @@ jobs:
         if: steps.toolchain.conclusion == 'success' || env.OUTPUT_RELEASE == 'true'
         uses: mknejp/delete-release-assets@v1
         with:
-          token: ${{secrets.GITHUB_TOKEN}}
+          token: ${{secrets.GIT_TOKEN}}
           tag: toolchain-cache
           assets: '${{env.SOURCE_REPO}}-${{env.LITE_BRANCH}}-${{env.DEVICE_TARGET}}*'
           fail-if-no-assets: false
@@ -165,7 +165,7 @@ jobs:
         with:
           name: toolchain-cache
           tag_name: toolchain-cache
-          token: ${{secrets.GITHUB_TOKEN}}
+          token: ${{secrets.GIT_TOKEN}}
           files: output/*
           body: OpenWrt 工具链缓存
 
@@ -216,7 +216,7 @@ jobs:
           allowUpdates: true
           removeArtifacts: true
           tag: ${{env.RELEASE_TAG}}
-          token: ${{secrets.GITHUB_TOKEN}}
+          token: ${{secrets.GIT_TOKEN}}
           artifacts: ${{env.FIRMWARE_PATH}}/*
           body: |
             **This is ${{env.SOURCE_REPO}} firmware for ${{env.DEVICE_TARGET}}**
