@@ -30,7 +30,7 @@ on:
       source:
         description: '选择要编译的源码'
         required: true
-        default: 'immwrt'
+        default: 'lean'
         type: choice
         options: ['immwrt', 'lean']
 
@@ -49,7 +49,7 @@ on:
       partsize:
         description: '设置rootfs大小'
         required: false
-        default: '800'
+        default: '996'
 
       toolchain:
         description: '使用toolchain缓存'
